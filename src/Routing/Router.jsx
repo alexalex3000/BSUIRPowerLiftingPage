@@ -13,7 +13,7 @@ const Router = () => {
         <ProgramProvider>
             <Header/>
             <Routes>
-                <Route path="/" element={<MainPage/>} />
+                <Route path="BSUIRPowerLiftingPage" element={<MainPage/>} />
                 <Route path="about" element={<AboutUsPage/>}/>
                 <Route path="programs" element={<TrainingPlanPage/>}>
                     <Route path=":id" element={<ProgramBlock/>}/>
