@@ -38,7 +38,7 @@ const Header = () => {
                     }
                 </button>
                 <nav className={`${styles.navigation} ${isOpen ? styles.showNavBar : ''}`}>
-                    <NavLink onClick={() => {if(isOpen) setIsOpen(false);}} to="/">Home</NavLink>
+                    <NavLink onClick={() => {if(isOpen) setIsOpen(false);}} to="/BSUIRPowerLiftingPage">Home</NavLink>
                     <NavLink onClick={() => {if(isOpen) setIsOpen(false);}} to="/about">About</NavLink>
                     <NavLink onClick={() => {if(isOpen) setIsOpen(false);}} to="/programs">Programs</NavLink>
                 </nav>
