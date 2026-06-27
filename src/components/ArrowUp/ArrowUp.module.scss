@@ -1,0 +1,17 @@
+.arrowWrapper{
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  @include flex;
+  width: 3.5rem;
+  border-radius: 50%;
+  height: 3.5rem;
+  cursor: pointer;
+  font-size: 2rem;
+  background-color: $primary;
+  color: $text-color;
+  z-index: 1000;
+  &:hover{
+    background-color: $secondary;
+  }
+}

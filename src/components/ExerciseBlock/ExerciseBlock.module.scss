@@ -1,0 +1,37 @@
+.exerciseWrapper{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  p{
+    color:$text-color;
+    display: flex;
+    gap: 1rem;
+
+    @media(max-width: 600px){
+      gap: 0.5rem;
+    }
+
+    &:not(:first-child){
+      padding: 0.5rem 1rem;
+      border-radius: 15px;
+      background-color: $primary;
+
+      @media(max-width: 600px){
+        padding: 0.3rem 0.7rem;
+
+      }
+    }
+
+    span{
+      font-weight: bold;
+    }
+  }
+
+  @media(max-width: 600px){
+    gap: 0.5rem;
+  }
+
+  @media(max-width: 460px){
+    flex-wrap: wrap;
+  }
+}

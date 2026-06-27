@@ -1,0 +1,15 @@
+.dayWrapper{
+  background-color: $secondary;
+  color: $text-color;
+  padding: 1rem;
+  border-radius: 5px;
+
+
+  .dayContent{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 13px;
+    padding-left: 8px;
+  }
+}

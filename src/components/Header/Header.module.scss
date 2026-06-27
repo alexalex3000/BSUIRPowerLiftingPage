@@ -1,0 +1,110 @@
+.header {
+  margin-top: 10px;
+  background: $background-grey-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  border-radius: 40px;
+  color: $text-color;
+  position: relative;
+
+  & .logo {
+    display: flex;
+    gap: 12px;
+    padding: 20px;
+    align-items: center;
+  }
+
+  & .navigation {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding-right: 20px;
+
+    & * {
+      padding: 10px 15px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  }
+
+  .openButton {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3.5rem;
+    gap: 5px;
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px 0;
+
+    .buttonLines {
+      width: 90%;
+      height: 6px;
+      border-radius: 30px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      background: $text-color;
+    }
+  }
+
+
+  @media (max-width: 600px) {
+    .openButton {
+      display: flex;
+      z-index: 1001;
+      .activeButton{
+        background: $primary;
+        width: 90%;
+        height: 6px;
+        border-radius: 30px;
+        position: absolute;
+        top: calc(50% - 3px);
+        left: 5%;
+        &:first-child {
+          transform: rotate(45deg);
+        }
+        &:last-child{
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    .navigation {
+      display: none;
+
+      &.showNavBar{
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: $text-color;
+        color: $primary;
+        flex-direction: column;
+        gap: 25px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        z-index: 1000;
+        padding: 30px;
+
+        & *{
+          font-size: 1.5rem;
+        }
+
+        & *:global(.active){
+          color: $text-color;
+        }
+      }
+    }
+  }
+}
+
+
+

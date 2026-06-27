@@ -1,0 +1,46 @@
+.allWeeks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addWeekButton {
+  & h1{
+    font-size: 2rem;
+  }
+
+  background: $text-color;
+  padding: 15px;
+  position: relative;
+  border-radius: 10px;
+
+  & .addWeekPlus {
+    @include flex();
+    width: 3rem;
+    height: 3rem;
+    background: $primary;
+    border-radius: 50%;
+    color: $text-color;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-weight: bold;
+  }
+}
+
+.submitFormButton {
+  padding: pxToRem(8px) pxToRem(15px);
+  border-radius: 50px;
+  margin: 0 auto;
+  background-color: $text-color;
+  font-weight: bold;
+  color: $primary;
+
+  &:hover {
+    color: $text-color;
+    background-color: $primary;
+    transform: scale(1.1);
+  }
+}

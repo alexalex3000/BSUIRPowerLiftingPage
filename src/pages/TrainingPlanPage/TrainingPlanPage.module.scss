@@ -1,0 +1,161 @@
+.planTitle {
+  text-align: center;
+  margin-top: pxToRem(40px);
+  font-size: 4rem;
+
+  @media (max-width: 900px) {
+    font-size: 2.8rem;
+    margin-top: pxToRem(20px);
+  }
+
+  @media (max-width: 600px) {
+    font-size: 2.2rem;
+  }
+}
+
+.traninigBlock {
+  padding-top: pxToRem(40px);
+  display: flex;
+  gap: 30px;
+  height: 100%;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+    @media (max-width: 850px) {
+      gap: 10px;
+    }
+    .navigatePrograms {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      @media (max-width: 850px) {
+        gap: 8px;
+      }
+      .linksTitle {
+        color: $background-grey-light;
+        padding-left: pxToRem(20px);
+        margin-bottom: 5px;
+
+        @media (max-width: 900px) {
+          padding-left: pxToRem(10px);
+        }
+      }
+
+      .personalPlans,
+      .recommendedPlans {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .recommendedPlans {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: pxToRem(20px);
+
+        @media (max-width: 850px) {
+          padding-bottom: pxToRem(8px);
+        }
+      }
+    }
+
+    a {
+      padding: 12px 20px;
+      color: $text-color;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      &:global(.active) {
+        background: $primary;
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .programBlock {
+    flex: 3;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    min-height: 50vh;
+
+    @media (max-width: 900px) {
+      min-height: auto;
+      width: 100%;
+    }
+
+    h3 {
+      color: $background-grey-light;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      line-height: 1.5;
+
+      @media (max-width: 900px) {
+        position: relative;
+        transform: none;
+        top: auto;
+        left: auto;
+        font-size: 1.2rem;
+        padding: 2rem 0;
+      }
+    }
+  }
+}
+
+.linkToProgram {
+  color: $text-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  a {
+    flex-grow: 1;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  button {
+    color: $primary;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: $text-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $primary;
+      color: $text-color;
+      transform: scale(1.1);
+    }
+  }
+}

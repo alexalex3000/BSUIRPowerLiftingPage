@@ -1,0 +1,143 @@
+.wrapper{
+  color: black;
+}
+
+.weekWrapper {
+  & h1{
+    font-size: 2rem;
+  }
+
+  background: $text-color;
+  padding: 15px;
+  border-radius: 10px;
+  transform: translateY(30px);
+  opacity: 0;
+
+  & h1 {
+    text-align: center;
+  }
+
+  & .selectDays{
+    position: relative;
+    width: 40%;
+    background-color: $primary;
+    color: $text-color;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: filter 0.2s ease;
+    @media(max-width: 650px){
+      width: 70%;
+    }
+    @media(max-width: 400px){
+      width: 75%;
+    }
+    &::after {
+      content: "";
+      width: 0.7rem;
+      height: 0.7rem;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transition: transform 0.3s ease;
+      margin-left: 1rem;
+    }
+    &.open::after {
+      transform: rotate(180deg);
+    }
+    & .daysListMain{
+      position: absolute;
+      max-height: 160px;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      width: 100%;
+      background-color: $secondary;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      list-style: none;
+      padding: 0.5rem 0;
+      z-index: 50;
+      overflow-y: auto;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $primary;
+        border-radius: 3px;
+      }
+
+      .customOption {
+        padding: 0.6rem 1.2rem;
+        cursor: pointer;
+        color: $text-color;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        &.selected {
+          background-color: rgba(255, 255, 255, 0.15); // Выделение выбранного элемента
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  & .addWeekButton{
+    margin-top: 1.5rem;
+    position: relative;
+    background: $secondary;
+    border-radius: 5px;
+    padding: 20px;
+
+    & .addWeekPlus{
+      position: absolute;
+      top: 50%;
+      right: 1.5rem;
+      transform: translateY(-50%);
+      display: flex;
+      font-weight: bold;
+      align-items: center;
+      justify-content: center;
+      background: $primary;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      color: $text-color;
+      font-size: 1.5rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+  }
+
+  .deleteWeekButton{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    & button{
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      color: $text-color;
+      font-size: 2rem;
+      background: $primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+  }
+}

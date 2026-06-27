@@ -1,0 +1,211 @@
+.exerciseSettingsWrapper {
+  @include largeShadow();
+  background: $secondary;
+  border-radius: 8px;
+  position: relative;
+  padding: 1.2rem 1.5rem;
+  color: $text-color;
+
+  @media(max-width: 620px) {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .addExerciseBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-right: 3rem;
+    align-items: flex-start;
+  }
+
+  .allInputs{
+    display: flex;
+    gap: 2rem;
+
+    @media(max-width: 610px){
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+
+  // --- Кастомный Select ---
+  .customSelectWrapper {
+    position: relative;
+    min-width: 280px;
+
+    @media(max-width: 450px) {
+      min-width: 240px;
+    }
+  }
+
+  .customSelectTrigger {
+    background-color: $primary;
+    color: $text-color;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: filter 0.2s ease;
+    user-select: none;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+    // Стрелочка
+    &::after {
+      content: "";
+      width: 0.7rem;
+      height: 0.7rem;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transition: transform 0.3s ease;
+      margin-left: 1rem;
+    }
+
+    &.open::after {
+      transform: rotate(180deg); // Переворачиваем стрелочку при открытии
+    }
+  }
+
+  .customSelectOptions {
+    position: absolute;
+    max-height: 160px;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: 100%;
+    background-color: $secondary;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    z-index: 10;
+    overflow-y: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $primary;
+      border-radius: 3px;
+    }
+  }
+
+  .customOption {
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    color: $text-color;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.08); // Легкая подсветка при наведении
+    }
+
+    &.selected {
+      background-color: rgba(255, 255, 255, 0.15); // Выделение выбранного элемента
+      font-weight: bold;
+    }
+  }
+
+  // --- Стилизация блоков ввода ---
+  .enterExerciseSets,
+  .enterExerciseReps,
+  .enterIntensity {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $text-color;
+    }
+
+    input {
+      width: 45px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+      color: $text-color;
+      font-family: inherit;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.2rem 0;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-bottom-color: $primary;
+      }
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      &[type=number] {
+        -moz-appearance: textfield;
+      }
+    }
+  }
+
+  .enterIntensity {
+    gap: 0.5rem;
+  }
+
+  & button.addExerciseButton {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $primary;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    color: $text-color;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+
+    @media(max-width:490px) {
+      top: 75%;
+    }
+
+    &:hover {
+      transform: translateY(-50%) scale(1.08);
+      filter: brightness(1.1);
+    }
+  }
+}
+
+.errorInput{
+  & input{
+    border-bottom-color: $primary !important;
+    color: $primary !important;
+
+    &::placeholder {
+      color: $primary !important;
+    }
+  }
+  & label{
+    color: $primary !important;
+  }
+  & span{
+    color: $primary;
+  }
+}
