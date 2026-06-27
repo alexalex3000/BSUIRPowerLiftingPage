@@ -5,6 +5,7 @@ import path from 'path'
 
 export default defineConfig({
     plugins: [react(), svgr()],
+    base: '/BSUIRPowerLiftingPage/',
     css: {
         preprocessorOptions: {
             scss: {
