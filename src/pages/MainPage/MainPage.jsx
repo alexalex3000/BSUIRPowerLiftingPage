@@ -5,11 +5,12 @@ import Barbell from "../../assets/barbell.svg?react"
 import Ipf from "../../assets/ifp.png?react"
 import Bsuir from "../../assets/bsuir.png?react"
 import Logo from '../../assets/mainLogo.svg?react'
-import {Link} from "react-router";
-import {useEffect, useRef, useState} from "react";
+import {Link, useNavigate} from "react-router";
+import {useEffect, useRef} from "react";
 
 const MainPage = () => {
     const scrollElement = useRef([]);
+    const navigate = useNavigate();
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -18,7 +19,7 @@ const MainPage = () => {
                     observer.unobserve(entry.target);
                 }
             });
-        }, { rootMargin: "10px" });
+        }, {threshold: 0.2});
 
         scrollElement.current.forEach(el => {
             if (el) observer.observe(el);
@@ -32,15 +33,15 @@ const MainPage = () => {
     return (
         <div className="wrapper">
             <section className={styles.topSection}>
-                <div className="fadeUp">
+                <div className="fadeUp fadeUpElements">
                     <div className={styles.mainText}>
                         <h1>Built for Your <span className={styles.redSpan}>Powerlifting</span> Lifestyle.</h1>
                         <p>Your goals, your pace, our proven programs — crafted to help you train
                             with purpose and transform with confidence.</p>
-                        <button>START NOW <GoTo/></button>
+                        <button onClick={() => navigate('/programs')}>START NOW <GoTo/></button>
                     </div>
                 </div>
-                <div className="fadeUp">
+                <div className="fadeUp fadeUpElements">
                     <div className={styles.mainImage}>
                         <img src={Belkin}/>
                     </div>
@@ -54,7 +55,7 @@ const MainPage = () => {
             </div>
             <section
                 ref={(el) => scrollElement.current[0] = el}
-                className={`${styles.miniAbout}`}>
+                className={`${styles.miniAbout} fadeUpElements`}>
                 <div className={`${styles.aboutTitle}`}>
                     <div className={styles.aboutMiniLogo}>About us</div>
                     <h1>Discover a Gym That Trains You to Be <span className={styles.redSpan}>Stronger</span>, <span className={styles.redSpan}>Fitter</span> and More <span className={styles.redSpan}>Focused</span></h1>
@@ -66,14 +67,15 @@ const MainPage = () => {
                     <p>Trusted by All BSUIR Students</p>
                 </div>
                 <div className={styles.aboutText}>
-                    <p>At BSUIR gym, our community isn’t just showing up — they’re leveling up. From newcomers to elite athletes, every member pushes harder, lifts stronger, and supports one another through every rep.</p>
-                    <button>
+                    <div className={styles.currentAboutText}>                    <p>At BSUIR gym, our community isn’t just showing up — they’re leveling up. From newcomers to elite athletes, every member pushes harder, lifts stronger, and supports one another through every rep.</p>
+                    </div>
+                    <button onClick={() => navigate('/about')}>
                         <p>Read More About Us</p>
                         <GoTo/>
                     </button>
                 </div>
             </section>
-            <section className={`${styles.sbdBlock}`} ref={(el) => scrollElement.current[1] = el}>
+            <section className={`${styles.sbdBlock} fadeUpElements`} ref={(el) => scrollElement.current[1] = el}>
                <div className={`${styles.sbdWrapper}`}>
                    <div className={styles.sbdHead}>
                        <div className={styles.aboutMiniLogo}>What We Offer</div>
@@ -96,7 +98,7 @@ const MainPage = () => {
                    <hr/>
                </div>
             </section>
-            <footer ref={(el) => scrollElement.current[2] = el} className={`${styles.contactUs}`}>
+            <footer ref={(el) => scrollElement.current[2] = el} className={`${styles.contactUs} fadeUpElements`}>
                 <div className={`${styles.contactUsHeader}`}>
                     <h1>Ready to <span className={styles.redSpan}>Commit</span>? Let’s Build Your <span className={styles.redSpan}>Strongest</span> Self.</h1>
                     <div className={styles.bsuirLogo}>
@@ -124,9 +126,9 @@ const MainPage = () => {
                     <div className={styles.contactUsLinks}>
                         <div><h3>Quick Links</h3></div>
                         <div>
-                            <Link>Home</Link>
-                            <Link>About Us</Link>
-                            <Link>Programs</Link>
+                            <Link to="/BSUIRPowerLiftingPage">Home</Link>
+                            <Link to="/about">About Us</Link>
+                            <Link to="/programs">Programs</Link>
                         </div>
                     </div>
                 </div>

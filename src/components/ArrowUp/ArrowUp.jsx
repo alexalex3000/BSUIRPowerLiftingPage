@@ -6,7 +6,6 @@ const ArrowUp = () => {
     const scrollToTop = () => {
         window.scrollTo(0, 0);
     }
-
     useEffect(() => {
         const checkScroll = () => {
             if (window.scrollY >= 100) {

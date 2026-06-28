@@ -1,5 +1,5 @@
 @mixin smallShadow(){
-  box-shadow: 0px 2px 12px rgba(150, 150, 161, 0.06);
+  box-shadow: 10px 2px 12px rgba(150, 150, 161, 0.06);
 }
 
 @mixin normalShadow(){
@@ -7,7 +7,7 @@
 }
 
 @mixin largeShadow(){
-  box-shadow: 0px 14px 36px 3px rgba(0, 0, 0, 0.18);
+  box-shadow: 1px 10px 10px 10px rgba(0, 0, 0, 0.18);
 }
 
 @mixin border($rad){

@@ -19,7 +19,7 @@ const ExerciseWeek = (props) => {
                     observer.unobserve(entry.target);
                 }
             })
-        }, { threshold: 0.1 })
+        }, { threshold: 0.2 })
 
         observer.observe(fadeUpElem.current);
 
@@ -30,7 +30,7 @@ const ExerciseWeek = (props) => {
 
     return (
         <div ref={fadeUpElem} className={styles.weekWrapper}
-             style={{ animationDuration: `${(num > 4 ? 130 : 200) * num + 1}ms` }}>
+             style={{ animationDuration: `${(num > 4 ? 50 : 100) * num + 1}ms` }}>
             <h1>Week {num + 1}</h1>
             <div onClick={() => setShowWeek(prev => !prev)}
                  className={`${styles.rotateArrow} ${showWeek ? styles.rotating : ""}`}>▲

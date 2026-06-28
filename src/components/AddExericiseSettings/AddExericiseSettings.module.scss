@@ -14,8 +14,14 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding-right: 3rem;
     align-items: flex-start;
+
+    .miniWrapper{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+    }
   }
 
   .allInputs{
@@ -34,7 +40,7 @@
     min-width: 280px;
 
     @media(max-width: 450px) {
-      min-width: 240px;
+      min-width: 10px;
     }
   }
 
@@ -46,16 +52,13 @@
     font-weight: 600;
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     transition: filter 0.2s ease;
     user-select: none;
-
     &:hover {
       filter: brightness(1.1);
     }
 
-    // Стрелочка
     &::after {
       content: "";
       width: 0.7rem;
@@ -66,10 +69,11 @@
       background-position: center;
       transition: transform 0.3s ease;
       margin-left: 1rem;
+      flex-shrink: 0;
     }
 
     &.open::after {
-      transform: rotate(180deg); // Переворачиваем стрелочку при открытии
+      transform: rotate(180deg);
     }
   }
 
@@ -117,7 +121,6 @@
     }
   }
 
-  // --- Стилизация блоков ввода ---
   .enterExerciseSets,
   .enterExerciseReps,
   .enterIntensity {
@@ -165,11 +168,8 @@
   }
 
   & button.addExerciseButton {
-    position: absolute;
-    top: 50%;
-    right: 1.5rem;
-    transform: translateY(-50%);
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
     background: $primary;
@@ -181,15 +181,6 @@
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease, filter 0.2s ease;
-
-    @media(max-width:490px) {
-      top: 75%;
-    }
-
-    &:hover {
-      transform: translateY(-50%) scale(1.08);
-      filter: brightness(1.1);
-    }
   }
 }
 

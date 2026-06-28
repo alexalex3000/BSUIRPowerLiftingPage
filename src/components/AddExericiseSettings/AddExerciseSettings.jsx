@@ -105,35 +105,37 @@ const AddExerciseSettings = (props) => {
                             </ul>)}
                     </div>
 
-                    <div className={styles.allInputs} ref={inputBlockRef}>
-                        <div className={`${styles.enterExerciseSets} ${errors.sets ? styles.errorInput : null}`}>
-                            <label htmlFor="sets">Sets</label>
-                            <input placeholder="0"
-                                   onChange={handleChange} value={exericiseSettings.sets} name="sets" id="sets"
-                                   type="number"/>
-                        </div>
-                        <div className={`${styles.enterExerciseReps} ${errors.reps ? styles.errorInput : null}`}>
-                            <label htmlFor="reps">Reps</label>
-                            <input placeholder="0"
-                                   onChange={handleChange} value={exericiseSettings.reps} name="reps" id="reps"
-                                   type="number"/>
-                        </div>
-                        {showIntensity && (
-                            <div className={`${styles.enterIntensity} ${errors.intensity ? styles.errorInput : null}`}>
-                                <label htmlFor="intensity">Intensity</label>
+                    <div className={styles.miniWrapper}>
+                        <div className={styles.allInputs} ref={inputBlockRef}>
+                            <div className={`${styles.enterExerciseSets} ${errors.sets ? styles.errorInput : null}`}>
+                                <label htmlFor="sets">Sets</label>
                                 <input placeholder="0"
-                                       onChange={handleChange} value={exericiseSettings.intensity} name="intensity"
-                                       id="intensity" type="number"/>
-                                <span>%</span>
-                            </div>)}
+                                       onChange={handleChange} value={exericiseSettings.sets} name="sets" id="sets"
+                                       type="number"/>
+                            </div>
+                            <div className={`${styles.enterExerciseReps} ${errors.reps ? styles.errorInput : null}`}>
+                                <label htmlFor="reps">Reps</label>
+                                <input placeholder="0"
+                                       onChange={handleChange} value={exericiseSettings.reps} name="reps" id="reps"
+                                       type="number"/>
+                            </div>
+                            {showIntensity && (
+                                <div className={`${styles.enterIntensity} ${errors.intensity ? styles.errorInput : null}`}>
+                                    <label htmlFor="intensity">Intensity</label>
+                                    <input placeholder="0"
+                                           onChange={handleChange} value={exericiseSettings.intensity} name="intensity"
+                                           id="intensity" type="number"/>
+                                    <span>%</span>
+                                </div>)}
+                        </div>
+                        <button
+                            type="button"
+                            onClick={addNewExercise}
+                            className={styles.addExerciseButton}
+                        >
+                            +
+                        </button>
                     </div>
-                    <button
-                        type="button"
-                        onClick={addNewExercise}
-                        className={styles.addExerciseButton}
-                    >
-                        +
-                    </button>
                 </div>)}
         </div>);
 };
